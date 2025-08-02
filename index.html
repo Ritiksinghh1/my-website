@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritik Singh - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated Background Circles */
+        .circle {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 15s infinite linear;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .circle:nth-child(1) { 
+            width: 60px; 
+            height: 60px; 
+            left: 10%; 
+            animation-delay: 0s;
+        }
+        
+        .circle:nth-child(2) { 
+            width: 80px; 
+            height: 80px; 
+            left: 20%; 
+            animation-delay: 2s;
+        }
+        
+        .circle:nth-child(3) { 
+            width: 100px; 
+            height: 100px; 
+            left: 30%; 
+            animation-delay: 4s;
+        }
+        
+        .circle:nth-child(4) { 
+            width: 70px; 
+            height: 70px; 
+            left: 40%; 
+            animation-delay: 6s;
+        }
+        
+        .circle:nth-child(5) { 
+            width: 90px; 
+            height: 90px; 
+            left: 50%; 
+            animation-delay: 8s;
+        }
+        
+        .circle:nth-child(6) { 
+            width: 110px; 
+            height: 110px; 
+            left: 60%; 
+            animation-delay: 10s;
+        }
+        
+        .circle:nth-child(7) { 
+            width: 65px; 
+            height: 65px; 
+            left: 70%; 
+            animation-delay: 12s;
+        }
+        
+        .circle:nth-child(8) { 
+            width: 85px; 
+            height: 85px; 
+            left: 80%; 
+            animation-delay: 14s;
+        }
+        
+        .circle:nth-child(9) { 
+            width: 75px; 
+            height: 75px; 
+            left: 90%; 
+            animation-delay: 16s;
+        }
+        
+        @keyframes float {
+            0% { 
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #fff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            padding-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: 1.2rem;
+            color: #64ffda;
+            margin-bottom: 10px;
+        }
+        
+        .hero h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #64ffda, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero h3 {
+            font-size: 3rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            border: 2px solid #64ffda;
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: transparent;
+            border-radius: 5px;
+        }
+        
+        .cta-button:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #64ffda;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 50px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .tech-list li {
+            color: #64ffda;
+            list-style: none;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .tech-list li:before {
+            content: "▷";
+            position: absolute;
+            left: 0;
+        }
+        
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid #64ffda;
+        }
+        
+        /* Education Section */
+        .education {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .education-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #64ffda;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .education-item h3 {
+            color: #64ffda;
+            margin-bottom: 10px;
+        }
+        
+        .education-item p {
+            color: #e0e0e0;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .project-card h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+        }
+        
+        .project-card p {
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-links a {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid #64ffda;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-links a:hover {
+            background: rgba(100, 255, 218, 0.2);
+            color: #fff;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-links a {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 15px 25px;
+            border: 2px solid #64ffda;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-links a:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            color: #e0e0e0;
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h3 {
+                font-size: 2rem;
+            }
+            
+            .hero-content {
+                padding: 30px 20px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .circle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, my name is</h1>
+                <h2>Ritik Singh.</h2>
+                <h3>I'm an Upcoming Software Engineer.</h3>
+                <p>I'm a passionate BTech student at Kalinga Institute of Industrial Technology (KIIT), specializing in CSE. With a strong foundation in programming, problem-solving, and software development, I thrive on building innovative solutions that address real-world challenges.</p>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a dedicated student pursuing my BTech degree at KIIT, where I've developed a strong foundation in computer science and engineering. My passion for technology drives me to constantly learn and adapt to new challenges in the ever-evolving world of software development.</p>
+                    
+                    <p>My expertise includes developing mobile applications using Flutter, tackling complex algorithms with C and C++, mastering Data Structures and Algorithms, and exploring emerging technologies like machine learning. I'm driven by curiosity, a commitment to continuous learning, and a desire to create impactful tech solutions.</p>
+                    
+                    <p>Here are a few technologies I've been working with recently:</p>
+                    
+                    <ul class="tech-list">
+                        <li>Flutter</li>
+                        <li>C/C++</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Machine Learning</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="portfolio.jpeg" alt="Ritik Singh" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <h3>BTech in Computer Science and Engineering</h3>
+                <p>Kalinga Institute of Industrial Technology (KIIT) - Present</p>
+            </div>
+            <div class="education-item">
+                <h3>Higher Secondary Education (11th & 12th)</h3>
+                <p>Lakshya School - Completed</p>
+            </div>
+            <div class="education-item">
+                <h3>Secondary Education (up to 10th)</h3>
+                <p>Loyola Convent School - Completed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Some Things I've Built</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Flutter Mobile App</h3>
+                    <p>A cross-platform mobile application built with Flutter, showcasing modern UI/UX design principles and efficient performance.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Ritiksinghh1/Ritiksinghh1">GitHub</a>
+                        <a href="#">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Algorithm Visualizer</h3>
+                    <p>An interactive tool built with C++ to visualize various sorting and searching algorithms, helping students understand complex concepts.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Ritiksinghh1/Ritiksinghh1">GitHub</a>
+                        <a href="#">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Machine Learning Project</h3>
+                    <p>A data science project implementing machine learning algorithms to solve real-world problems with data analysis and visualization.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Ritiksinghh1/Ritiksinghh1">GitHub</a>
+                        <a href="#">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">What's Next?</h2>
+            <h3>Get In Touch</h3>
+            <p>Although I'm currently focusing on my studies, I'm always open to new opportunities and collaborations. Whether you have a question, want to discuss a project, or just want to say hi, I'll try my best to get back to you!</p>
+            <div class="contact-links">
+                <a href="mailto:singhritik1208@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/ritik-singh-414a372b8/">LinkedIn</a>
+                <a href="https://github.com/Ritiksinghh1/Ritiksinghh1">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024. All rights reserved by Ritik Singh.</p>
+            <p>Designed and created by Ritik Singh</p>
+        </div>
+    </footer>
+</body>
+</html>
