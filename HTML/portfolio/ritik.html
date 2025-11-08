@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            font-family: Arial;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            animation: float 15s infinite linear;
+        }
+        .circle:nth-child(1) { width: 60px; height: 60px; left: 20%; }
+        .circle:nth-child(2) { width: 80px; height: 80px; left: 60%; animation-delay: 5s; }
+        @keyframes float {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100px); }
+        }
+        .content {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    
+    <div class="content">
+        <h1>Ritik singh</h1>
+        <p> contact : <a href="https://mail.google.com/mail/?tab=rm&authuser=0&ogbl">singhritik1208@gmail.com</a></p>
+        <p> linkedin : <a href="https://www.linkedin.com/in/ritik-singh-414a372b8/">checkout my linkedin</a></p>
+        <p> GitHub : <a href="https://github.com/Ritiksinghh1/Ritiksinghh1">checkout my  github</a></p>
+        
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <img height="200px" width="200px" src="portfolio.jpeg" alt="Ritik">
+                    </td>
+                    <td>
+                        "I'm a passionate BTech student at Kalinga Institute of Industrial Technology (KIIT), specializing in CSE. With a strong foundation in programming, problem-solving, and software development, I thrive on building innovative solutions that address real-world challenges. My expertise includes developing mobile applications using Flutter, tackling complex algorithms with C,C++,DSA and exploring emerging technologies like machine learning. I'm driven by curiosity, a commitment to continuous learning, and a desire to create impactful tech solutions."
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        
+        <table>
+            <tr>
+                <td>
+                    <section style="text-align: left;">
+            <h2>
+                Education :
+            </h2>
+            <ul>
+                <li>Completed upto class 10 in LOYOLA CONVENT SCHOOL</li>
+                <li>Completed 11th and 12th from LAKSHYA SCHOOL</li>
+                <li>B-Tech from KIIT</li>
+        </ul>
+        </section>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>
